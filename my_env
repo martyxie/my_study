@@ -1,0 +1,5 @@
+export SDK_PATH=/home/esp8266/smart_project/ESP8266_RTOS_SDK-2.0.0
+export BIN_PATH=$PWD/bin
+
+make clean;
+make BOOT=none APP=0 SPI_SPEED=40 SPI_MODE=DOUT SPI_SIZE_MAP=3
