@@ -24,6 +24,10 @@
 
 #include "esp_common.h"
 #include "freertos/queue.h"
+#include "debug_log.h"
+#include "mytask.h"
+#include "sw_wifi.h"
+//#include "sw_wifi.h"
 
 /******************************************************************************
  * FunctionName : user_rf_cal_sector_set
@@ -105,9 +109,13 @@ void init_finish(void)
 *******************************************************************************/
 void user_init(void)
 {
-    printf("xiexiang_SDK %s version:%s\n",__DATE__, system_get_sdk_version());
-	wifi_set_opmode(STATIONAP_MODE);
-	init_finish();
+	char chipid[36] = {0}; 
+	SW_LOG_DEBUG("xiexiang new_SDK %s version:%s\n",__DATE__, system_get_sdk_version());
+	SW_LOG_DEBUG("Chip ID is %x\n",system_get_chip_id());
+	sw_wifi_init(STATIONAP_MODE);
+//	wifi_set_opmode(STATIONAP_MODE);
+	//my_task_init();
+	//init_finish();
 
 }
 
